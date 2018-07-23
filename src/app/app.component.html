@@ -1,12 +1,12 @@
 <a href="/">
-  <img class="logo" alt="CSC Logo" src="https://ocp.cscglobal.com/cdn/gateway/csc/csc-logo-marketing2.png">
+  <img class="logo" alt="CSC Logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP7S_pUTkJSCMKN67O4X0gib_aXaO3cw7O9heCrrvOZsGPOmx6jcQn6Q">
 </a>
 
 <form (submit)="newFilling($event)" [formGroup]="angularForm" autocomplete="on" novalidate>
   <div [hidden]="secondFormVisible" class="container">
     <div class="heading">
       <h1>
-        New Filling
+        Student Details
       </h1>
     </div>
 
@@ -14,16 +14,34 @@
       <label>
         <br>
         <br>
-        <b>State</b>
+        <b>Student Name</b>
       </label>
-      <select class="form-control" formControlName="selectedState" id="newFillingState" (change)="typeChanged()">
-        <option>---Select State---</option>
-        <option *ngFor="let name of selectedState">
-          {{name.state}}
-        </option>
-      </select>
+      <input class="form-control" formControlName="studentName" type="text" id="studentName">
     </div>
 
+    <div *ngIf="angularForm.controls['studentName'].invalid && (angularForm.controls['studentName'].dirty || angularForm.controls['studentName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angularForm.controls['studentName'].errors.required">
+        Student Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <b>Branch</b>
+      </label>
+      <input class="form-control" formControlName="studentBranch" type="text" id="studentBranch">
+    </div>
+
+    <div *ngIf="angularForm.controls['studentBranch'].invalid && (angularForm.controls['studentBranch'].dirty || angularForm.controls['studentBranch'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angularForm.controls['studentBranch'].errors.required">
+        Student Branch is required.
+      </div>
+    </div>
+
+
+    <!-- 
     <div class="form-group">
       <label>
         <b>Juisdiction </b>
@@ -47,19 +65,34 @@
         <input class="form-check-input" type="radio" name="uccRadio" id="UCC3" value="UCC3">
         <label class="form-check-label" for="UCC3"> UCC3 </label>
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label>
-        <b>Billing Ref 1</b>
+        <b>Year of Passing</b>
       </label>
-      <input class="form-control" formControlName="newFillingRef" type="text" id="newFillingRef">
+      <input class="form-control" formControlName="passingYear" type="text" id="passingYear">
     </div>
 
-    <div *ngIf="angularForm.controls['newFillingRef'].invalid && (angularForm.controls['newFillingRef'].dirty || angularForm.controls['newFillingRef'].touched)"
+    <div *ngIf="angularForm.controls['passingYear'].invalid && (angularForm.controls['passingYear'].dirty || angularForm.controls['passingYear'].touched)"
       class="alert alert-danger">
-      <div *ngIf="angularForm.controls['newFillingRef'].errors.required">
-        Billing Ref is required.
+      <div *ngIf="angularForm.controls['passingYear'].errors.required">
+        Student passing year is required.
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>
+        <b>College Name</b>
+      </label>
+      <input class="form-control" formControlName="collegeName" type="text" id="collegeName">
+    </div>
+
+    <div *ngIf="angularForm.controls['collegeName'].invalid && (angularForm.controls['collegeName'].dirty || angularForm.controls['collegeName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angularForm.controls['collegeName'].errors.required">
+        College name is required.
       </div>
     </div>
 
@@ -67,16 +100,15 @@
       Cancel
     </button>
 
-    <button (click)="toggleButton()" type="button" class="btn btn-success" [disabled]="angularForm.controls['newFillingRef'].pristine || angularForm.controls['newFillingRef'].invalid"
-      class="btn btn-success">
-      Continue
+    <button (click)="toggleButton()" type="button" class="btn btn-success" class="btn btn-success">
+      Submit
     </button>
     <br/>
   </div>
 
   <!-- ---------------------------------------Debtor's---------------------------------------- -->
 
-  <div [hidden]="firstFormVisible">
+  <!-- <div [hidden]="firstFormVisible">
     <div class="heading">
       <h2>
         Debtor's Exact Full Legal Name
@@ -182,7 +214,7 @@
     </div>
 
     <!-- ---------------------------------------SECURED PARTY---------------------------------------- -->
-    <div class="heading">
+    <!-- <div class="heading">
       <br>
       <h2>
         Secured Party's Exact Full Legal Name
@@ -286,66 +318,5 @@
         </div>
       </div>
     </div>
-
-    <!-- ---------------------------------------Collateral Information---------------------------------------- -->
-    <div class="heading">
-      <br>
-      <h2>
-        Collateral Information
-      </h2>
-    </div>
-    <br>
-    <br>
-
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <div class="form-group">
-          <label>
-            <b>Select Collateral</b>
-          </label>
-          <select class="form-control form-control-sm" id="collateralType">
-            <option *ngFor="let collateral of collateralOption">
-              {{collateral.Collaterol}}
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>
-            <b>Type of Attachment</b>
-          </label>
-          <select class="form-control form-control-sm" id="attachmentType">
-            <option>Pdf</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>
-            <b>Collateral Is</b>
-          </label>
-          <div class="form-check form-check-inline" style="padding-left: 10%">
-            <input class="form-check-input" type="radio" id="collateralIsNone" name="collRadio" value="None" checked>
-            <label class="form-check-label" for="collateralIsNone"> None </label>
-          </div>
-          <div class="form-check form-check-inline" style="padding-left: 5%">
-            <input class="form-check-input" type="radio" id="collateralIsTrust" name="collRadio" value="Held in a Trust">
-            <label class="form-check-label" for="collateralIsTrust"> Held in a Trust </label>
-          </div>
-          <div class="form-check form-check-inline" style="padding-left: 5%">
-            <input class="form-check-input" type="radio" id="collateralIsRep" name="collRadio" value="Being administered by a Decendents Personal Representative">
-            <label class="form-check-label" for="collateralIsRep"> Being administered by a Decendents Personal Representative </label>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" [disabled]="angularForm.controls['orgNameD'].pristine || angularForm.controls['orgNameD'].invalid || angularForm.controls['mailingAddressD'].pristine || angularForm.controls['mailingAddressD'].invalid ||
-          angularForm.controls['cityNameD'].pristine || angularForm.controls['cityNameD'].invalid || angularForm.controls['postalCodeD'].pristine || angularForm.controls['postalCodeD'].invalid || angularForm.controls['orgNameS'].pristine || angularForm.controls['orgNameS'].invalid || angularForm.controls['mailingAddressS'].pristine || angularForm.controls['mailingAddressS'].invalid ||
-          angularForm.controls['cityNameS'].pristine || angularForm.controls['cityNameS'].invalid || angularForm.controls['postalCodeS'].pristine || angularForm.controls['postalCodeS'].invalid">
-          Create Filling
-        </button>
-      </div>
-      <div *ngIf='formSubmitted' class="submitMessage">
-        <strong>PDF is generated succesfully!</strong>
-      </div>
-    </div>
-  </div>
+  </div> -->
 </form>

@@ -40,9 +40,9 @@
     position: relative;
     left: 1.5%;
     margin-top: 1%;
-    width: 3.5%;
   }
 
   .btn-success {
-    background-color: #01b2aa;
+    background-color: #0eaae8;
+    border-color: #0eaae8
   }
