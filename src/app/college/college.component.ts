@@ -13,6 +13,8 @@ export class CollegeComponent implements OnInit {
     passingYear;
     collegeName;
     approved = false;
+    loggedIn;
+    invalid;
 
     collegeForm = new FormGroup({
         studentName: new FormControl(),
@@ -21,7 +23,20 @@ export class CollegeComponent implements OnInit {
         collegeName: new FormControl()
     });
 
+    form = new FormGroup({
+        login: new FormControl(),
+        password: new FormControl()
+    });
+
     constructor(private fb: FormBuilder) {
+        this.createForm();
+    }
+
+    createForm() {
+        this.form = this.fb.group({
+            login: ['', Validators.required],
+            password: ['', Validators.required],
+        });
     }
 
 
@@ -30,9 +45,25 @@ export class CollegeComponent implements OnInit {
         this.studentBranch = 'CSE';
         this.passingYear = '2014';
         this.collegeName = 'Chitkara University';
+        this.loggedIn = false;
+        this.invalid = false;
     }
 
     approve() {
         this.approved = true;
     }
+
+    loginSubmit(event) {
+        const target = event.target;
+        const login = target.querySelector('#login').value;
+        const password = target.querySelector('#password').value;
+    
+        if (login === 'rahul' && password === '12345') {
+          this.loggedIn = true;
+          console.log(1);
+        } else {
+          this.invalid = true;
+          console.log(2);
+        }
+      }
 }

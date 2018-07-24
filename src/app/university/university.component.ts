@@ -156,7 +156,7 @@ export class UniversityComponent {
 
 
     console.log(studentName, studentBranch, passingYear, collegeName, collegeId, studentEmail);
-    window.location.reload();
+    this.angularForm.reset();
 
 
     // const debtorState = target.querySelector('#debtorState').value;

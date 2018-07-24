@@ -1,16 +1,23 @@
-.logo {
+.logo2 {
     position: relative;
     left: 1.5%;
     margin-top: 0.4%;
     width: 5%;
   }
 
-  .heading {
+.logo {
+    position: relative;
+    left: 1.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.heading {
     text-align: center;
 }
 
 .container {
-    max-width: 37%;
+    max-width: 45%;
 }
 
 .form-group {
