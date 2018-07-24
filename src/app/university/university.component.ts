@@ -10,14 +10,9 @@ import { environment } from '../../environments/environment';
 })
 export class UniversityComponent {
   title = 'app';
-  secondFormVisible = false;
-  firstFormVisible = true;
   formSubmitted = false;
-  debtorOption;
-  securedPartyOption;
-  juisdictions;
-  selectedState;
-  collateralOption;
+  loggedIn;
+  invalid;
 
   angularForm = new FormGroup({
     studentName: new FormControl(),
@@ -25,14 +20,14 @@ export class UniversityComponent {
     passingYear: new FormControl(),
     collegeName: new FormControl(),
     collegeId: new FormControl(),
-    studentEmail: new FormControl(),
-    orgNameS: new FormControl(),
-    mailingAddressS: new FormControl(),
-    cityNameS: new FormControl(),
-    stateNameS: new FormControl(),
-    postalCodeS: new FormControl(),
-    attachmentDesc: new FormControl()
+    studentEmail: new FormControl()
   });
+
+  form = new FormGroup({
+    login: new FormControl(),
+    password: new FormControl()
+  });
+
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {
     this.createForm();
   }
@@ -45,59 +40,57 @@ export class UniversityComponent {
       collegeName: ['', Validators.required],
       collegeId: ['', Validators.required],
       studentEmail: ['', Validators.required],
-      orgNameS: ['', Validators.required],
-      mailingAddressS: ['', Validators.required],
-      cityNameS: ['', Validators.required],
-      stateNameS: ['', Validators.required],
-      postalCodeS: ['', Validators.required],
-      attachmentDesc: ['', Validators.required],
-      selectedState: []
+    });
+
+    this.form = this.fb.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
-  toggleButton() {
-    this.secondFormVisible = true;
-    this.firstFormVisible = false;
+  // toggleButton() {
+  //   this.secondFormVisible = true;
+  //   this.firstFormVisible = false;
 
-    //GET METHOD FOR DEBTOR TYPE
+  //   //GET METHOD FOR DEBTOR TYPE
 
-    this.httpClient.get(environment.getDebtorAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.debtorOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
+  //   this.httpClient.get(environment.getDebtorAPI)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.debtorOption = response;
+  //       },
+  //       err => {
+  //         console.log("Error Ocurred" + err);
+  //       }
+  //     )
 
-    //GET METHOD FOR SECURED PARTY TYPE
+  //   //GET METHOD FOR SECURED PARTY TYPE
 
-    this.httpClient.get(environment.getSecuredPartyAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.securedPartyOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
+  //   this.httpClient.get(environment.getSecuredPartyAPI)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.securedPartyOption = response;
+  //       },
+  //       err => {
+  //         console.log("Error Ocurred" + err);
+  //       }
+  //     )
 
-    //GET METHOD FOR COLLATERAL TYPE
+  //   //GET METHOD FOR COLLATERAL TYPE
 
-    this.httpClient.get(environment.getCollateralAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.collateralOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-  }
+  //   this.httpClient.get(environment.getCollateralAPI)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.collateralOption = response;
+  //       },
+  //       err => {
+  //         console.log("Error Ocurred" + err);
+  //       }
+  //     )
+  // }
 
   refresh() {
     window.location.reload();
@@ -117,19 +110,38 @@ export class UniversityComponent {
   //     )
   // }
 
-  typeChanged() {
-    const selectedState = this.angularForm.get('selectedState').value;
-    const data = { "state": selectedState };
-    this.httpClient.post(environment.getJurisdictionAPI, data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.juisdictions = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
+  // typeChanged() {
+  //   const selectedState = this.angularForm.get('selectedState').value;
+  //   const data = { "state": selectedState };
+  //   this.httpClient.post(environment.getJurisdictionAPI, data)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.juisdictions = response;
+  //       },
+  //       err => {
+  //         console.log("Error Ocurred" + err);
+  //       }
+  //     )
+  // }
+
+  ngOnInit() {
+    this.loggedIn = false;
+    this.invalid = false;
+  }
+
+  loginSubmit(event) {
+    const target = event.target;
+    const login = target.querySelector('#login').value;
+    const password = target.querySelector('#password').value;
+
+    if (login === 'rahul' && password === '12345') {
+      this.loggedIn = true;
+      console.log(1);
+    } else {
+      this.invalid = true;
+      console.log(2);
+    }
   }
 
 
@@ -146,7 +158,7 @@ export class UniversityComponent {
     console.log(studentName, studentBranch, passingYear, collegeName, collegeId, studentEmail);
     window.location.reload();
 
-  
+
     // const debtorState = target.querySelector('#debtorState').value;
     // const debtorPostcode = target.querySelector('#debtorPostcode').value;
     // const securedtype = target.querySelector('#securedtype').value;

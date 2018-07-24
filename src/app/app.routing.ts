@@ -7,7 +7,7 @@ import { UniversityComponent } from './university/university.component';
 export const appRoutes: Routes = [
 
    
-    { path: '', component: UniversityComponent, pathMatch: "full" },
+    { path: 'university', component: UniversityComponent, pathMatch: "full" },
 
     { path: 'college', component: CollegeComponent },
     { path: 'student', component: StudentComponent }
