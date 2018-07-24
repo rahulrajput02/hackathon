@@ -24,8 +24,8 @@ export class UniversityComponent {
     studentBranch: new FormControl(),
     passingYear: new FormControl(),
     collegeName: new FormControl(),
-    stateNameD: new FormControl(),
-    postalCodeD: new FormControl(),
+    collegeId: new FormControl(),
+    studentEmail: new FormControl(),
     orgNameS: new FormControl(),
     mailingAddressS: new FormControl(),
     cityNameS: new FormControl(),
@@ -43,8 +43,8 @@ export class UniversityComponent {
       studentBranch: ['', Validators.required],
       passingYear: ['', Validators.required],
       collegeName: ['', Validators.required],
-      stateNameD: ['', Validators.required],
-      postalCodeD: ['', Validators.required],
+      collegeId: ['', Validators.required],
+      studentEmail: ['', Validators.required],
       orgNameS: ['', Validators.required],
       mailingAddressS: ['', Validators.required],
       cityNameS: ['', Validators.required],
@@ -139,10 +139,14 @@ export class UniversityComponent {
     const studentBranch = target.querySelector('#studentBranch').value;
     const passingYear = target.querySelector('#passingYear').value;
     const collegeName = target.querySelector('#collegeName').value;
+    const collegeId = target.querySelector('#collegeId').value;
+    const studentEmail = target.querySelector('#studentEmail').value;
 
 
-    console.log(studentName, studentBranch, passingYear, collegeName);
+    console.log(studentName, studentBranch, passingYear, collegeName, collegeId, studentEmail);
     window.location.reload();
+
+  
     // const debtorState = target.querySelector('#debtorState').value;
     // const debtorPostcode = target.querySelector('#debtorPostcode').value;
     // const securedtype = target.querySelector('#securedtype').value;
