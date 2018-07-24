@@ -38,3 +38,8 @@
     text-align: center;
     margin-top: 4%;
 }
+
+.tableButton {
+    float: right;
+    margin-top: 12%;
+}

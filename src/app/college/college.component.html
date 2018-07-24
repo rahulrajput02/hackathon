@@ -33,7 +33,7 @@
         Password is required.
       </div>
     </div>
-    <button type="submit" class="btn btn-success" class="btn btn-success" [disabled]="form.controls['login'].pristine || form.controls['login'].invalid || form.controls['password'].pristine || form.controls['password'].invalid">
+    <button type="submit" class="btn btn-success" [disabled]="form.controls['login'].pristine || form.controls['login'].invalid || form.controls['password'].pristine || form.controls['password'].invalid">
       Submit
     </button>
     <div *ngIf="invalid" class="invalidMessage">https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css
@@ -67,42 +67,45 @@
       <br>
       <tbody>
         <tr>
+          <td>
+            <input type="checkbox">
+          </td>
           <td>Rahul Rajput</td>
           <td>CSE</td>
           <td>2014</td>
-          <td>
-            <button>Approve</button>
-          </td>
         </tr>
         <br>
         <tr>
-          <td>hari Prasad</td>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>Hari Prasad</td>
           <td>ECE</td>
           <td>2015</td>
-          <td>
-            <button>Approve</button>
-          </td>
         </tr>
         <br>
         <tr>
+          <td>
+            <input type="checkbox">
+          </td>
           <td>Badiyuzama Mohammad</td>
           <td>CSE</td>
           <td>2010</td>
-          <td>
-            <button>Approve</button>
-          </td>
         </tr>
         <br>
         <tr>
+          <td>
+            <input type="checkbox">
+          </td>
           <td>Rohit Chauhan</td>
           <td>MCA</td>
           <td>2017</td>
-          <td>
-            <button>Approve</button>
-          </td>
         </tr>
       </tbody>
     </table>
+    <div class="tableButton">
+      <button class="btn btn-success">Approve</button>
+    </div>
   </div>
 </div>
 <!-- </form> -->
