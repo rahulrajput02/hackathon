@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-student',
@@ -7,7 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
 
-    constructor() { }
+    studentForm = new FormGroup({
+        studentName: new FormControl(),
+        studentBranch: new FormControl(),
+        passingYear: new FormControl(),
+        collegeName: new FormControl()
+    });
+
+    constructor(private fb: FormBuilder) {
+        this.createForm();
+     }
+
+
+      createForm() {
+        this.studentForm = this.fb.group({
+          studentName: ['', Validators.required],
+          studentBranch: ['', Validators.required],
+          passingYear: ['', Validators.required],
+          collegeName: ['', Validators.required],
+          stateNameD: ['', Validators.required],
+          postalCodeD: ['', Validators.required],
+          orgNameS: ['', Validators.required],
+          mailingAddressS: ['', Validators.required],
+          cityNameS: ['', Validators.required],
+          stateNameS: ['', Validators.required],
+          postalCodeS: ['', Validators.required],
+          attachmentDesc: ['', Validators.required],
+          selectedState: []
+        });
+      }
 
     ngOnInit() {
 
