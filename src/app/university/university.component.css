@@ -7,12 +7,20 @@
     max-width: 37%;
 }
 
+.logo2 {
+    position: relative;
+    left: 1.5%;
+    margin-top: 0.4%;
+    width: 5%;
+  }
+
 .form-group {
     margin-bottom: 2rem;
 }
 
 .jumbotron {
     padding: 1%;
+    background-color: #cfdaef;
 }
 
 .submitMessage {
@@ -54,7 +62,13 @@
 
 .btn-success {
     background-color: #0eaae8;
-    border-color: #0eaae8
+    border-color: #0eaae8;
+}
+
+.buttonSubmit {
+    background-color: #cfdaef;
+    border-color: #cfdaef;
+    color:  #003b5d;
 }
 
 .invalidMessage{
@@ -62,4 +76,13 @@
     border-left: 6px solid red;
     text-align: center;
     margin-top: 4%;
+}
+
+.tableButton {
+    float: right;
+    margin-top: 12%;
+}
+
+.bottomImage {
+    width: 2.5%;
 }
