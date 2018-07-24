@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-university',
   templateUrl: './university.component.html',
   styleUrls: ['./university.component.css']
 })
-export class AppComponent {
+export class UniversityComponent {
   title = 'app';
   secondFormVisible = false;
   firstFormVisible = true;
@@ -103,19 +103,19 @@ export class AppComponent {
     window.location.reload();
   }
 
-  ngOnInit() {
+  // ngOnInit() {
 
-    this.httpClient.get(environment.getStatesAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.selectedState = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-  }
+  //   this.httpClient.get(environment.getStatesAPI)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.selectedState = response;
+  //       },
+  //       err => {
+  //         console.log("Error Ocurred" + err);
+  //       }
+  //     )
+  // }
 
   typeChanged() {
     const selectedState = this.angularForm.get('selectedState').value;
