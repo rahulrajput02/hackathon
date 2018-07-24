@@ -133,17 +133,16 @@ export class AppComponent {
   }
 
 
-  newFilling(event) {
+  recordSubmission(event) {
     const target = event.target;
-
-
-    var fillingFormType;
-
-  
     const studentName = target.querySelector('#studentName').value;
     const studentBranch = target.querySelector('#studentBranch').value;
     const passingYear = target.querySelector('#passingYear').value;
     const collegeName = target.querySelector('#collegeName').value;
+
+
+    console.log(studentName, studentBranch, passingYear, collegeName);
+    window.location.reload();
     // const debtorState = target.querySelector('#debtorState').value;
     // const debtorPostcode = target.querySelector('#debtorPostcode').value;
     // const securedtype = target.querySelector('#securedtype').value;

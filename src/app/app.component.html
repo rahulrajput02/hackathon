@@ -2,7 +2,7 @@
   <img class="logo" alt="CSC Logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP7S_pUTkJSCMKN67O4X0gib_aXaO3cw7O9heCrrvOZsGPOmx6jcQn6Q">
 </a>
 
-<form (submit)="newFilling($event)" [formGroup]="angularForm" autocomplete="on" novalidate>
+<form (submit)="recordSubmission($event)" [formGroup]="angularForm" autocomplete="on" novalidate>
   <div [hidden]="secondFormVisible" class="container">
     <div class="heading">
       <h1>
@@ -100,7 +100,7 @@
       Cancel
     </button>
 
-    <button (click)="toggleButton()" type="button" class="btn btn-success" class="btn btn-success">
+    <button type="submit" class="btn btn-success" class="btn btn-success" [disabled]="angularForm.controls['studentName'].pristine || angularForm.controls['studentName'].invalid || angularForm.controls['studentBranch'].pristine || angularForm.controls['studentBranch'].invalid || angularForm.controls['passingYear'].pristine || angularForm.controls['passingYear'].invalid || angularForm.controls['collegeName'].pristine || angularForm.controls['collegeName'].invalid">
       Submit
     </button>
     <br/>
@@ -214,7 +214,7 @@
     </div>
 
     <!-- ---------------------------------------SECURED PARTY---------------------------------------- -->
-    <!-- <div class="heading">
+  <!-- <div class="heading">
       <br>
       <h2>
         Secured Party's Exact Full Legal Name
