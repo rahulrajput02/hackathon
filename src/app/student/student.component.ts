@@ -13,23 +13,40 @@ export class StudentComponent implements OnInit {
     passingYear;
     collegeName;
     approved = false;
+    succesfullSubmission = false;
+    beforeSubmission = true;
 
     studentForm = new FormGroup({
-        studentName: new FormControl(),
-        studentBranch: new FormControl(),
-        passingYear: new FormControl(),
-        collegeName: new FormControl()
+        studentEmail: new FormControl(),
+        studentUniqueId: new FormControl()
     });
 
     constructor(private fb: FormBuilder) {
+        this.createForm();
     }
 
+    createForm() {
+        this.studentForm = this.fb.group({
+            studentEmail: ['', Validators.required],
+            studentUniqueId: ['', Validators.required],
+        });
+    }
 
     ngOnInit() {
         this.studentName = 'Rahul Rajput';
         this.studentBranch = 'CSE';
         this.passingYear = '2014';
         this.collegeName = 'Chitkara University';
+    }
+
+    submitDetails(event) {
+        const target = event.target;
+        const studentEmail = target.querySelector('#studentEmail').value;
+        const studentUniqueId = target.querySelector('#studentUniqueId').value;
+
+        console.log(studentEmail, studentUniqueId);
+        this.succesfullSubmission = true;
+        this.beforeSubmission = false;
     }
 
     approve() {

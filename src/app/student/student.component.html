@@ -2,7 +2,7 @@
   <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQivXTvcFKHQy1NmQqRPQij_-rhmi6SWunIEpIidiyg4uGTmORI8Q">
 </a>
 
-<form (submit)="recordSubmission($event)" [formGroup]="studentForm" autocomplete="on" novalidate>
+<form (submit)="submitDetails($event)" [formGroup]="studentForm" autocomplete="on" novalidate>
   <div class="jumbotron jumbotron-fluid">
     <div class="heading">
       <h1>
@@ -11,36 +11,68 @@
       </h1>
     </div>
   </div>
-  <div class="container">
 
+  <div class="container" [hidden]="succesfullSubmission">
+    <div class="form-group">
+      <label>
+        <br>
+        <b>Please enter your email Id</b>
+      </label>
+      <input class="form-control" formControlName="studentEmail" type="text" id="studentEmail">
+    </div>
+    <div *ngIf="studentForm.controls['studentEmail'].invalid && (studentForm.controls['studentEmail'].dirty || studentForm.controls['studentEmail'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="studentForm.controls['studentEmail'].errors.required">
+        Student Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <b>Please enter your unique no.</b>
+      </label>
+      <input class="form-control" formControlName="studentUniqueId" type="text" id="studentUniqueId">
+    </div>
+    <div *ngIf="studentForm.controls['studentUniqueId'].invalid && (studentForm.controls['studentUniqueId'].dirty || studentForm.controls['studentUniqueId'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="studentForm.controls['studentUniqueId'].errors.required">
+        Unique No. is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" class="btn btn-success">
+      Submit
+    </button>
+  </div>
+
+  <div class="container" [hidden]="beforeSubmission">
     <div class="form-group">
       <label>
         <br>
         <b>Student Name</b>
       </label>
-      <input class="form-control" formControlName="studentName" type="text" id="studentName" placeholder={{studentName}} readonly>
+      <input class="form-control" type="text" id="studentName" placeholder={{studentName}} readonly>
     </div>
 
     <div class="form-group">
       <label>
         <b>Branch</b>
       </label>
-      <input class="form-control" formControlName="studentBranch" type="text" id="studentBranch" placeholder={{studentBranch}}
-        readonly>
+      <input class="form-control" type="text" id="studentBranch" placeholder={{studentBranch}} readonly>
     </div>
 
     <div class="form-group">
       <label>
         <b>Year of Passing</b>
       </label>
-      <input class="form-control" formControlName="passingYear" type="text" id="passingYear" placeholder={{passingYear}} readonly>
+      <input class="form-control" type="text" id="passingYear" placeholder={{passingYear}} readonly>
     </div>
 
     <div class="form-group">
       <label>
         <b>College Name</b>
       </label>
-      <input class="form-control" formControlName="collegeName" type="text" id="collegeName" placeholder={{collegeName}} readonly>
+      <input class="form-control" type="text" id="collegeName" placeholder={{collegeName}} readonly>
     </div>
 
     <button (click)="refresh()" type="button" style="margin-right: 8%" class="btn btn-secondary">
