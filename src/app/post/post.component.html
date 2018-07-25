@@ -1,0 +1,20 @@
+<form (submit)="validate($event)" [formGroup]="form" novalidate>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="heading">
+                <h2>
+                    Validate Block
+                </h2>
+            </div>
+        </div>
+        <label>
+            <br>
+            <b>Validate</b>
+        </label>
+        <input class="form-control" type="text" id="validate">
+        <br>
+        <button type="submit" class="btn btn-success">
+            Get Block
+        </button>
+    </div>
+</form>
