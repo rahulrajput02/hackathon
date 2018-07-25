@@ -8,11 +8,22 @@
 }
 
 .container2 {
-    max-width: 50%;
+    max-width: 48%;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .form-group {
     margin-bottom: 2rem;
+}
+
+.submitToBlockchainMessage {
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+    text-align: center;
 }
 
 .jumbotron {
@@ -65,10 +76,10 @@
 .buttonSubmit {
     background-color: #cfdaef;
     border-color: #cfdaef;
-    color:  #003b5d;
+    color: #003b5d;
 }
 
-.invalidMessage{
+.invalidMessage {
     background-color: #ffdddd;
     border-left: 6px solid red;
     text-align: center;

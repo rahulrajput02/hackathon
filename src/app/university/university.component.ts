@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 export class UniversityComponent {
   title = 'app';
   formSubmitted = false;
+  submit;
   loggedIn;
   invalid;
 
@@ -48,86 +49,14 @@ export class UniversityComponent {
     });
   }
 
-  // toggleButton() {
-  //   this.secondFormVisible = true;
-  //   this.firstFormVisible = false;
-
-  //   //GET METHOD FOR DEBTOR TYPE
-
-  //   this.httpClient.get(environment.getDebtorAPI)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.debtorOption = response;
-  //       },
-  //       err => {
-  //         console.log("Error Ocurred" + err);
-  //       }
-  //     )
-
-  //   //GET METHOD FOR SECURED PARTY TYPE
-
-  //   this.httpClient.get(environment.getSecuredPartyAPI)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.securedPartyOption = response;
-  //       },
-  //       err => {
-  //         console.log("Error Ocurred" + err);
-  //       }
-  //     )
-
-  //   //GET METHOD FOR COLLATERAL TYPE
-
-  //   this.httpClient.get(environment.getCollateralAPI)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.collateralOption = response;
-  //       },
-  //       err => {
-  //         console.log("Error Ocurred" + err);
-  //       }
-  //     )
-  // }
-
   refresh() {
     window.location.reload();
   }
 
-  // ngOnInit() {
-
-  //   this.httpClient.get(environment.getStatesAPI)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.selectedState = response;
-  //       },
-  //       err => {
-  //         console.log("Error Ocurred" + err);
-  //       }
-  //     )
-  // }
-
-  // typeChanged() {
-  //   const selectedState = this.angularForm.get('selectedState').value;
-  //   const data = { "state": selectedState };
-  //   this.httpClient.post(environment.getJurisdictionAPI, data)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.juisdictions = response;
-  //       },
-  //       err => {
-  //         console.log("Error Ocurred" + err);
-  //       }
-  //     )
-  // }
-
   ngOnInit() {
     this.loggedIn = false;
     this.invalid = false;
+    this.submit = false;
   }
 
   loginSubmit(event) {
@@ -142,6 +71,10 @@ export class UniversityComponent {
       this.invalid = true;
       console.log(2);
     }
+  }
+
+  submitToBlockchain() {
+    this.submit = true;
   }
 
 
