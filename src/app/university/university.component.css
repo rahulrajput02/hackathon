@@ -7,19 +7,16 @@
     max-width: 37%;
 }
 
-.logo2 {
-    position: relative;
-    left: 1.5%;
-    margin-top: 0.4%;
-    width: 5%;
-  }
+.container2 {
+    max-width: 50%;
+}
 
 .form-group {
     margin-bottom: 2rem;
 }
 
 .jumbotron {
-    padding: 1%;
+    padding: 0.5%;
     background-color: #cfdaef;
 }
 
@@ -55,9 +52,9 @@
 .logo2 {
     position: relative;
     left: 1.5%;
-    margin-top: 1%;
-    width: 3%;
-    margin-bottom: 1%;
+    margin-top: 0.4%;
+    width: 4%;
+    margin-bottom: 0.4%;
 }
 
 .btn-success {
@@ -84,5 +81,5 @@
 }
 
 .bottomImage {
-    width: 2.5%;
+    width: 4%;
 }

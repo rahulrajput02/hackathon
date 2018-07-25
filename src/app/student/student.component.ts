@@ -36,7 +36,7 @@ export class StudentComponent implements OnInit {
         this.studentName = 'Rahul Rajput';
         this.studentBranch = 'CSE';
         this.passingYear = '2014';
-        this.collegeName = 'Chitkara University';
+        this.collegeName = 'School of Management Studies';
     }
 
     submitDetails(event) {

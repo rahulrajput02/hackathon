@@ -33,7 +33,7 @@
         Password is required.
       </div>
     </div>
-    <button type="submit" class="btn btn-success" class="btn btn-success" [disabled]="form.controls['login'].pristine || form.controls['login'].invalid || form.controls['password'].pristine || form.controls['password'].invalid">
+    <button type="submit" class="btn btn-success" [disabled]="form.controls['login'].pristine || form.controls['login'].invalid || form.controls['password'].pristine || form.controls['password'].invalid">
       Submit
     </button>
     <div *ngIf="invalid" class="invalidMessage">
@@ -43,27 +43,26 @@
 </form>
 
 <div *ngIf="loggedIn">
-  <img class="logo2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQivXTvcFKHQy1NmQqRPQij_-rhmi6SWunIEpIidiyg4uGTmORI8Q">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="heading">
-      <h1>
-        Get Approvals
-        <img class="bottomImage" src="https://image.flaticon.com/icons/png/512/58/58679.png">
-      </h1>
-    </div>
-  </div>
-
+  <img class="logo2" src="https://upload.wikimedia.org/wikipedia/en/9/9e/University_of_Hyderabad_Logo.png">
   <div class="container">
-    <table id="example" class="display" style="width:100%">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="heading">
+        <h2>
+          Details for Verification
+          <img class="bottomImage" src="https://image.flaticon.com/icons/png/512/58/58679.png">
+        </h2>
+      </div>
+    </div>
+    <table id="example" class="table table-striped" style="width:100%">
       <thead>
         <tr>
           <th></th>
           <th>Student Name</th>
           <th>Branch</th>
           <th>Year</th>
+          <th>College Name</th>
         </tr>
       </thead>
-      <br>
       <tbody>
         <tr>
           <td>
@@ -72,8 +71,8 @@
           <td>Rahul Rajput</td>
           <td>CSE</td>
           <td>2014</td>
+          <td>School of Management Studies</td>
         </tr>
-        <br>
         <tr>
           <td>
             <input type="checkbox">
@@ -81,8 +80,9 @@
           <td>Hari Prasad</td>
           <td>ECE</td>
           <td>2015</td>
+          <td>Department of Computers</td>
         </tr>
-        <br>
+
         <tr>
           <td>
             <input type="checkbox">
@@ -90,8 +90,9 @@
           <td>Badiyuzama Mohammad</td>
           <td>CSE</td>
           <td>2010</td>
+          <td>Department of Information Science</td>
         </tr>
-        <br>
+
         <tr>
           <td>
             <input type="checkbox">
@@ -99,12 +100,60 @@
           <td>Rohit Chauhan</td>
           <td>MCA</td>
           <td>2017</td>
+          <td>School of Management Studies</td>
         </tr>
+        <br>
+        <button>Send</button>
+        <br>
+        <br>
       </tbody>
     </table>
-    <div class="tableButton">
-      <button class="buttonSubmit">Submit</button>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="heading">
+        <h2>
+          Submit to Blockchain
+          <img class="bottomImage" src="https://image.flaticon.com/icons/png/512/58/58679.png">
+        </h2>
+      </div>
     </div>
+    <table id="example" class="table table-striped" style="width:100%">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Student Name</th>
+          <th>Branch</th>
+          <th>Year</th>
+          <th>College Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>Rahul Rajput</td>
+          <td>CSE</td>
+          <td>2014</td>
+          <td>School of Management Studies</td>
+        </tr>
+
+        <tr class="table-success">
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>Badiyuzama Mohammad</td>
+          <td>CSE</td>
+          <td>2010</td>
+          <td>Department of Information Science</td>
+        </tr>
+        <br>
+        <button>Submit</button>
+        <br>
+      </tbody>
+    </table>
   </div>
 </div>
 <!-- </form> -->
