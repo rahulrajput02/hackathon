@@ -18,11 +18,12 @@
 }
 
 .jumbotron {
-    padding: 1%;
+    padding: 0.5%;
+    background-color: #f39b7b;
 }
 
 .bottomImage {
-    width: 2.5%;
+    width: 2%;
 }
 
 .approveMessage{
