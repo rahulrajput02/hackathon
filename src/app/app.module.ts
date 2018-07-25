@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CollegeComponent } from './college/college.component';
 import { StudentComponent } from './student/student.component';
 import { UniversityComponent } from './university/university.component';
-import { PostComponent } from './post/post.component';
+import { BlockComponent } from './block/block.component';
 
 import { routing } from './app.routing';
 
@@ -21,7 +21,7 @@ import { routing } from './app.routing';
     CollegeComponent,
     StudentComponent,
     UniversityComponent,
-    PostComponent
+    BlockComponent
   ],
   imports: [
     BrowserModule,

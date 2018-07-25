@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
-    selector: 'app-post',
-    templateUrl: './post.component.html',
-    styleUrls: ['./post.component.css']
+    selector: 'app-block',
+    templateUrl: './block.component.html',
+    styleUrls: ['./block.component.css']
 })
-export class PostComponent {
+export class BlockComponent {
 
+    blockResponse;
     form = new FormGroup({
     });
     constructor(private fb: FormBuilder, private httpClient: HttpClient) { }
@@ -17,15 +18,15 @@ export class PostComponent {
         const target = event.target;
         const validate = target.querySelector('#validate').value;
 
-        const obj = { "id" : validate};
-        console.log(obj);
+        const obj = { "id": validate };
 
-        this.httpClient.post('http://localhost:4200/find', obj, {
+        this.httpClient.post('http://localhost:3000/find', obj, {
             responseType: 'text',
         })
             .subscribe(
                 response => {
                     console.log(response);
+                    this.blockResponse = response;
                 },
                 err => {
                     console.log("Error Ocurred" + err);
