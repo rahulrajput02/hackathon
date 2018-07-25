@@ -12,6 +12,7 @@ export class StudentComponent implements OnInit {
     studentBranch;
     passingYear;
     collegeName;
+    degree;
     approved = false;
     succesfullSubmission = false;
     beforeSubmission = true;
@@ -36,6 +37,7 @@ export class StudentComponent implements OnInit {
         this.studentName = 'Rahul Rajput';
         this.studentBranch = 'CSE';
         this.passingYear = '2014';
+        this.degree = 'B.E';
         this.collegeName = 'School of Management Studies';
     }
 
